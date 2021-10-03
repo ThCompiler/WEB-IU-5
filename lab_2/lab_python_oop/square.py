@@ -9,10 +9,10 @@ class Square(Rectangle):
     
     def __init__(self, line : int):
         super().__init__(line, line)
-        
+    
     def __init__(self, line : int, color : Color):
         super().__init__(line, line, color)
-        
+    
     def __init__(self, line : int, red : int, green : int, blue : int):
         super().__init__(line, line, red, green, blue)
         
