@@ -1,0 +1,21 @@
+{% load static %}
+
+<!doctype html>
+<html class="h-100">
+    {%  include "include/head.html" %}
+
+    <body class="d-flex flex-column h-100">
+       {%  include "include/navbar.html" %}
+
+        <!-- Begin page content -->
+        <main class="flex-shrink-0">
+            <div class="container main-body">
+                {%  block content %}
+                {%  endblock content %}
+            </div>
+            
+        </main>
+        {% include "include/footer.html" %}
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

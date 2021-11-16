@@ -1,0 +1,15 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{%  block content %}
+ <h1 class="body-head"> Мороженное </h1>
+ <ul class="list-group list-group-flush ">
+     {% for icecream in icecreams %}
+         <li class="float-left clear-top-bot-padding clear-padding list-group-item row">
+            <img class="center-img col-3" src="{{  icecream.image.url }}" height="100" width="100">
+             <a class="float-left list-icecream nav-link blue-link icecream-size shadow-text col-9"
+             href="{% url 'details' pk=icecream.id %}"> {{ icecream.name }} </a>
+         </li>
+     {% endfor %}
+ </ul>
+ {%  endblock content %}

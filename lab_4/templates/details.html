@@ -1,0 +1,21 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 class="body-head"> {{ icecream.name }} </h1>
+    <img class="center-details-img" src="{{  icecream.image.url }}" height="100" width="100">
+    <ul class="list-group list-group-flush ">
+        <li class="float-left clear-top-bot-padding clear-padding list-group-item row">
+            <div class="float-left icecream-size col-4 fix-display">Описание</div>
+            <div class="float-left list-icecream text-size col-8"> {{ icecream.description }} </div>
+        </li>
+        <li class="float-left clear-top-bot-padding clear-padding list-group-item row">
+            <div class="float-left icecream-size col-4 fix-display">Производитель</div>
+            <div class="float-left list-icecream text-size col-8"> {{ icecream.company.name }} </div>
+        </li>
+        <li class="float-left clear-top-bot-padding clear-padding list-group-item row">
+            <div class="float-left icecream-size col-4 fix-display">Цена</div>
+            <div class="float-left list-icecream text-size col-8"> {{ icecream.price }} руб </div>
+        </li>
+    </ul>
+{% endblock content %}
