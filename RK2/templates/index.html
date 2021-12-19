@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        table.collapse {
+            border: 2px solid black;
+            border-collapse: collapse;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        td.upper {
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 5px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1 class="center-text"> Отчёт по данным базы о процессорах и компьюторах</h1>
+<div class="center-text">
+    {% for value in data %}
+        <table class="collapse center-text">
+            <tr>
+                <td class="upper" colspan="12">Процессор</td>
+            </tr>
+            <tr>
+                <td class="upper" colspan="3">ID</td>
+                <td class="upper" colspan="3">Название</td>
+                <td class="upper" colspan="3">Частота</td>
+                <td class="upper" colspan="3">Размер кэша</td>
+            </tr>
+            <tr>
+                <td class="upper" colspan="3">{{ value.0.id }}</td>
+                <td class="upper" colspan="3">{{ value.0.name }}</td>
+                <td class="upper" colspan="3">{{ value.0.frequency }}</td>
+                <td class="upper" colspan="3">{{ value.0.memory_cash }}</td>
+            </tr>
+            <tr>
+                <td class="upper" colspan="12">Используется в компьютерах</td>
+            </tr>
+            <tr>
+                <td colspan="4">ID</td>
+                <td colspan="4">Название</td>
+                <td colspan="4">Цена</td>
+            </tr>
+            {% for pc in value.1 %}
+                <tr>
+                    <td colspan="4">{{ pc.id }}</td>
+                    <td colspan="4">{{ pc.name }}</td>
+                    <td colspan="4">{{ pc.price }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="12">Не найдено</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</div>
+</body>
+</html>
